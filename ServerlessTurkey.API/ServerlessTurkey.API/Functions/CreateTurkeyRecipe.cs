@@ -27,6 +27,7 @@ namespace ServerlessTurkey.API.Functions
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "TurkeyRecipe")] HttpRequest req)
         {
             IActionResult actionResult = null;
+            TurkeyWeightMapper turkeyWeightMapper = new TurkeyWeightMapper();
 
             try
             {
@@ -37,7 +38,7 @@ namespace ServerlessTurkey.API.Functions
                 TurkeyWeightInput input = JsonConvert.DeserializeObject<TurkeyWeightInput>(requestBody);
 
                 // Map the input weight to generate values for our recipe.
-                TurkeyRecipeResponseDTO turkeyRecipeResponseDTO = TurkeyWeightMapper.GenerateTurkeyRecipe(input);
+                TurkeyRecipeResponseDTO turkeyRecipeResponseDTO = turkeyWeightMapper.GenerateTurkeyRecipe(input);
 
                 // Return our DTO
                 actionResult = new OkObjectResult(turkeyRecipeResponseDTO);

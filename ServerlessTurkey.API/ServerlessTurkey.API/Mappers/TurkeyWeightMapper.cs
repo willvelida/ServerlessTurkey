@@ -5,14 +5,14 @@ using System.Text;
 
 namespace ServerlessTurkey.API.Mappers
 {
-    public static class TurkeyWeightMapper
+    public class TurkeyWeightMapper
     {
         /// <summary>
         /// Generates a recipe for turkey based on the provided weight in pounds.
         /// </summary>
         /// <param name="turkeyWeightInput"></param>
         /// <returns></returns>
-        public static TurkeyRecipeResponseDTO GenerateTurkeyRecipe(TurkeyWeightInput turkeyWeightInput)
+        public TurkeyRecipeResponseDTO GenerateTurkeyRecipe(TurkeyWeightInput turkeyWeightInput)
         {
             return new TurkeyRecipeResponseDTO()
             {
